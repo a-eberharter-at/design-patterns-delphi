@@ -34,6 +34,9 @@ begin
       stock.Price := 120.750;
 
       stock.Detach(investor2);
+      stock.Price := 999;
+      stock.Price := 999.999;
+      stock.Price := 3;
 
       ReadLn;
     finally
