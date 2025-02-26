@@ -1,3 +1,6 @@
+# Playground Fork
+This fork was created to have a base-line of established patterns & use-cases in which it is possible to "get used" to delphi.
+
 # DelphiPatterns
 This project should represent a complete set of all the GoF design patterns implemented in Delphi language. 
 
