@@ -23,7 +23,7 @@ begin
   Dec (nCount);
   if nCount = 0 then
   begin
-    inherited FreeInstance;
+    inherited FreeInstance; //Free the Singleton if no instances are active --> No Garbage collection, we can't just let it stay alive freely 'just in case'
     Instance := nil;
   end; 
 end;
