@@ -45,7 +45,7 @@ end;
 
 function TAdapter.QueryInterface(const IID: TGUID; out Obj): HResult;
 begin
-  if GetInterface(IID, Obj) then
+  if GetInterface(IID, Obj) then  //Get interface via GUID --> Adapter old/new interface
     Result := 0
   else
     Result := E_NOINTERFACE;
