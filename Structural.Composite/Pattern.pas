@@ -34,7 +34,7 @@ type
 
   TComposite = class(TInterfacedObject, IComponent)
   private
-    FList: TInterfaceList;
+    FList: TInterfaceList;  //Interface-list, in this case used because TSingle / TComposite use TInterfacedObject;
     FName: string;
     FHolder: IComponent;
   public
@@ -100,7 +100,7 @@ end;
 
 { TComposite }
 
-procedure TComposite.Add(c: IComponent);  
+procedure TComposite.Add(c: IComponent);
 begin
   FList.Add(c);
 end;
