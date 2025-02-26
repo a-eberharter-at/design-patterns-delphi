@@ -23,7 +23,7 @@ type
     procedure SetPhone(value: string);
     procedure SetBudget(value: Double);
   public
-    property Name: string read FName write SetName;
+    property Name: string read FName write SetName; //computed prop with setter
     property Phone: string read FPhone write SetPhone;
     property Budget: Double read FBudget write SetBudget;
     function SaveMemento: TMemento;
