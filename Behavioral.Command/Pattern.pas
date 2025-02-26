@@ -121,10 +121,10 @@ var
 begin
   WriteLn(#10 + Format('----- Redo %d levels ', [levels]));
   for i := 0 to levels - 1 do begin
-    if FCurrent < FCommands.Count - 1 then begin
-      FCurrent := FCurrent + 1;
+    if FCurrent < FCommands.Count then begin
       command := FCommands[FCurrent] as ICommand;
       command.Execute;
+      FCurrent := FCurrent + 1;
     end;
   end;
 end;
