@@ -12,7 +12,7 @@ var
   coll2: TConcreteColleague2;
 
 begin
-  ReportMemoryLeaksOnShutdown := DebugHook <> 0;
+  ReportMemoryLeaksOnShutdown := DebugHook <> 0; // Note: <> is != in Delphi (Pascal)
   try
     mediator := TConcreteMediator.Create;
     coll1 := TConcreteColleague1.Create(mediator);
