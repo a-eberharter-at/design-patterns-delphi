@@ -24,7 +24,7 @@ type
     constructor Create(ACustomList: TCustomList);
     function MoveNext: Boolean;
     function GetCurrent: TCustomObject;
-    property Current: TCustomObject read GetCurrent;
+    property Current: TCustomObject read GetCurrent; //Computed property; read "GetCurrent" on access of "Current"
   end;
 
   TCustomList = class(TList) 
