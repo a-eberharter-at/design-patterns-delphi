@@ -36,7 +36,7 @@ type
     property Price: Double read ReadPrice write SetPrice;
   end;
 
-  TInvestor = class(TINterfacedObject, IObserver)
+  TInvestor = class(TInterfacedObject, IObserver) //inherits from type TInterfacedObject AND implements IObserver Interface; on method sig. conflicts --> base class has priority, on 2 interface conflict  --> compiler error
   private
     FName: string;
   public
@@ -85,9 +85,12 @@ procedure TStock.Notify;
 var
   i: Integer;
 begin
+  WriteLn(sLineBreak + 'Notify all Investors if new price:');
   if FInvestors <> nil then
     for i := 0 to Pred(FInvestors.Count) do
-      IObserver(FInvestors[i]).Update(Self);
+      IObserver(FInvestors[i]).Update(Self)
+  else
+    WriteLn('No investors.');
 end;
 
 function TStock.ReadPrice: Double;
@@ -104,7 +107,7 @@ procedure TStock.SetPrice(value: Double);
 begin
   if value <> FPrice then begin
     FPrice := value;
-    Notify;    
+    Notify;
   end;
 end;
 
