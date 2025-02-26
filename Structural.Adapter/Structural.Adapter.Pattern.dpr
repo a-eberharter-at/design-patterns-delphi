@@ -15,7 +15,7 @@ begin
   try
     adaptee := TAdaptee.Create;
     try
-      WriteLn('Before the new standard' + #10 + 'Precise reading:');
+      WriteLn('Before the new standard' + #13#10 + 'Precise reading:'); //#13 is CR, #10 equals new LF, #0 equals NULL, #9 equals TAB
       WriteLn(adaptee.SpecificRequest(5, 3));
 
       target := TAdapter.Create;
