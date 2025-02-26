@@ -7,24 +7,18 @@ uses
   Pattern in 'Pattern.pas';
 
 var
-  prototypeA, clonedA: IPrototype;
-  prototypeB, clonedB: IPrototype;
+  Original, Cloned: IPrototype;
 
 begin
   try
-    // Create initial prototypes
-    prototypeA := TConcretePrototypeA.Create;
-    prototypeB := TConcretePrototypeB.Create;
+    Original := TConcretePrototype.Create('Initial Data');
 
-    // Clone the prototypes
-    clonedA := prototypeA.Clone;
-    clonedB := prototypeB.Clone;
+    Cloned := Original.Clone;
 
-    // Output results
-    Writeln(prototypeA.GetDescription);
-    Writeln(clonedA.GetDescription);
-    Writeln(prototypeB.GetDescription);
-    Writeln(clonedB.GetDescription);
+    Cloned.SetData('Modified Clone Data');
+
+    Writeln('Original: ', Original.GetDescription);
+    Writeln('Cloned: ', Cloned.GetDescription);
 
     ReadLn;
   except

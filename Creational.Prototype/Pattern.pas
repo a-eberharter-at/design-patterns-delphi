@@ -7,44 +7,49 @@ type
   ['{3D94E6F0-EC5C-4D3D-B2D7-33475B2A9C98}']
     function Clone: IPrototype;
     function GetDescription: string;
+    procedure SetData(const AData: string);
+    function GetData: string;
   end;
 
-  TConcretePrototypeA = class(TInterfacedObject, IPrototype)
+  TConcretePrototype = class(TInterfacedObject, IPrototype)
+  private
+    FData: string;
   public
+    constructor Create(const AData: string);
     function Clone: IPrototype;
     function GetDescription: string;
-  end;
-
-  TConcretePrototypeB = class(TInterfacedObject, IPrototype)
-  public
-    function Clone: IPrototype;
-    function GetDescription: string;
+    procedure SetData(const AData: string);
+    function GetData: string;
   end;
 
 implementation
 
-{ TConcretePrototypeA }
+{ TConcretePrototype }
 
-function TConcretePrototypeA.Clone: IPrototype;
+constructor TConcretePrototype.Create(const AData: string);
 begin
-  Result := TConcretePrototypeA.Create;
+  FData := AData;
 end;
 
-function TConcretePrototypeA.GetDescription: string;
+function TConcretePrototype.Clone: IPrototype;
 begin
-  Result := 'Prototype A';
+  Result := TConcretePrototype.Create(Self.FData);
 end;
 
-{ TConcretePrototypeB }
-
-function TConcretePrototypeB.Clone: IPrototype;
+function TConcretePrototype.GetDescription: string;
 begin
-  Result := TConcretePrototypeB.Create;
+  Result := 'Cloned object with data: ' + FData;
 end;
 
-function TConcretePrototypeB.GetDescription: string;
+procedure TConcretePrototype.SetData(const AData: string);
 begin
-  Result := 'Prototype B';
+  FData := AData;
+end;
+
+function TConcretePrototype.GetData: string;
+begin
+  Result := FData;
 end;
 
 end.
+
