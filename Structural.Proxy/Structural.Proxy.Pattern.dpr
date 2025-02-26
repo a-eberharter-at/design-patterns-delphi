@@ -25,10 +25,16 @@ begin
       subject := TProtectionProxy.Create;
       WriteLn(subject.Request);
       if Supports(subject, IProtected, protect) then begin
+        WriteLn('Auth with "Secret".');
         WriteLn(protect.Authenticate('Secret'));
+        WriteLn(subject.Request);
+        WriteLn('Auth with "Abracadabra".');
         WriteLn(protect.Authenticate('Abracadabra'));
+        WriteLn(subject.Request);
+      end
+      else begin
+        WriteLn('Protection is not supported.');
       end;
-      WriteLn(subject.Request);
       ReadLn;
     finally
 
