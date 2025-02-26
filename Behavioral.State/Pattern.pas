@@ -7,7 +7,7 @@ type
   TContext = class;
 
   IState = interface
-  ['{2E995182-8FA5-4AF2-9994-6E5B7F273A0B}']
+  ['{2E995182-8FA5-4AF2-9994-6E5B7F273A0B}']  //GUID (Globally Unique Identifier); guarantees interface to have a unique identifier (Generate via Ctrl+Shift+G)
     function MoveUp(c: TContext): integer;
     function MoveDown(c: TContext): integer;
   end;
